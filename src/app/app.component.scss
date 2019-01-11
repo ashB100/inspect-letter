@@ -1,0 +1,21 @@
+//.letter {
+//  letter-spacing: 2px;
+//  &:hover {
+//    letter-spacing: 3px;
+//    font-size: 30px;
+//    padding: 2px;
+//    background-color: lightpink;
+//    cursor: sw-resize;
+//  }
+//}
+//
+//.word-container {
+//  height: 4em;
+//  line-height: 4em;
+//}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

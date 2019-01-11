@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'highlight-text';
+  pickedColor: string = `#ff0080`;
+  size: number = 30;
+  word: string[] = ['W','o','r','d'];
+
+  onPickColor(color) {
+    this.pickedColor = color;
+  }
+
+  onChangeFontSize(size) {
+    this.size = size;
+  }
+
+  onEnterText(word) {
+    this.word = word.split('');
+  }
 }
