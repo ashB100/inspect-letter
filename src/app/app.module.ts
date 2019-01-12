@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HighlightLetterDirective } from './highlight-letter.directive';
-import { TextComponent } from './text/text.component';
+import { InspectLetterDirective } from './inspect-letter.directive';
+import { TextComponent } from './text/inspectable-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightLetterDirective,
+    InspectLetterDirective,
     TextComponent
   ],
   imports: [

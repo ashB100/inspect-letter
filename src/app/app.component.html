@@ -3,20 +3,24 @@
 </h1>
 <p>Pick a color, a size and enter a word. Hover on the word to inspect.</p>
 
-<div>
-<label for="color">Color</label>
-<input id="color" type="color" bind-value="pickedColor" (change)="onPickColor($event.target.value)">
+<div class="input-container">
+  <div class="input-item-container">
+    <label class="input-item" for="color">Color </label>
+    <input class="input-item" id="color" type="color" bind-value="pickedColor" (change)="onPickColor($event.target.value)">
+  </div>
+
+  <div class="input-item-container">
+    <label class="input-item" for="size">Font size </label>
+    <input class="input-item" id="size" type="number" bind-value="size" min="20" max="50" (change)="onChangeFontSize($event.target.value)">
+  </div>
+
+  <div class="input-item-container">
+    <label class="input-item" for="word">Word</label>
+    <input class="input-item" id="word" type="text"  (keyup)="onEnterText($event.target.value)">
+  </div>
 </div>
 
-<div>
-<label for="size">Font size</label>
-<input id="size" type="number" bind-value="size" min="20" max="50" (change)="onChangeFontSize($event.target.value)">
-</div>
 
-<div>
-<label for="word">Word</label>
-<input id="word" type="text" placeholder="enter a word" (keyup)="onEnterText($event.target.value)">
-</div>
 <!-- Example: component property binding -->
 <!-- Example: directive property binding -->
 
@@ -31,3 +35,35 @@ and interpolation will change it to a string-->
   Hex: {{pickedColor}}
   Font Size: {{size}}px
 </div>
+
+
+<label>Talks Watch List</label>
+
+<!-- example: interpolation creates binding, updated when source changes -->
+<!-- Example binding to native html element property -->
+<!--Note: when used in property binding putting space in between open
+and close curly braces like so title={{ talk.conference }} gives and error
+it has to be without space: title={{talk.conference}}-->
+<!-- Note here I have talk in the component class but it uses the
+template input variable. Order of precedence is template context (--, --), then component class instance-->
+
+<div *ngFor="let talk of talksList" title={{talk.conference}}>
+  <a>{{talk.title}}</a>
+  <!--<span>{{talk.conference}}</span>-->
+  <span>{{talk.presenters}}</span>
+  <button (click)="onAdd(talk)">Add</button>
+</div>
+
+<!--Anything outside of expression context is not accessible. So
+global functions like Math, Date are not allowed-->
+<!--<p>{{Date.now()}}</p>-->
+
+<!-- But we can get the date data from component class -->
+<p>{{todaysDate | date}}</p>
+
+<!-- Set value with component class property -->
+
+<!-- When component class property changes
+element property value gets updated automatically
+through CD-->
+

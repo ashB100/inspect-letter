@@ -19,3 +19,12 @@
   flex-direction: column;
   align-items: center;
 }
+
+.input-item-container {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.input-item {
+  width: 150px;
+}

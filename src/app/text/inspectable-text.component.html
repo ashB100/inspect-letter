@@ -1,0 +1,14 @@
+<!-- We use directives as attributes of element or component
+The directive selector: [appInspectLetter] is wrapped in square
+brackets. The selector property uses CSS matching rules to match
+a component or directive to a html element, and in CSS selectors
+element, class is a dot ., id is a #, attribute is []
+
+But when used in html we don't have to put the [], [] are for
+CSS selector and in HTML [] means property binding.
+-->
+<div class="word-container">
+  <span *ngFor="let letter of word" appInspectLetter [color]="color" [size]="size" class="letter">
+  {{ letter }}
+</span>
+</div>
